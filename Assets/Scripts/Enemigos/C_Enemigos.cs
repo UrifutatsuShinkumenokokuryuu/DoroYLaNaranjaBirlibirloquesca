@@ -32,8 +32,8 @@ public class C_Enemigos : MonoBehaviour
 
     public void Spawner()
     {       
-        float x = Random.Range(0f, 2f);
-        float y = Random.Range(0f, 2f);
+        float x = Random.Range(0f, 2f);//->Ajustar
+        float y = Random.Range(0f, 2f);//-> Ajustar
         
         Vector2 direccion = new Vector2(x, y).normalized;        
         Vector2 spawnPos = (Vector2)Doro.transform.position + direccion * radioSpawneo;        
