@@ -5,11 +5,11 @@ Control de movimento (tipo MOBA)
 Creación de disparo y acción de disparo
 Vida del player
 */
-public class ControlPersonaje : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public GameObject BulletPrefab;
     [SerializeField] private float Speed;
-    public float lifePlayer = 50f;
+    [SerializeField] private float lifePlayer = 50f;
     private bool move = false; //Simula un swichs de cambio para no hacer un movimiento constante al dar click
     private Vector2 destiny;
 
@@ -25,16 +25,7 @@ public class ControlPersonaje : MonoBehaviour
 
         if (Input.GetMouseButton(0))
             SetDestiny();                
-    }
-    /*
-    public Vector2 PointFollow() //Método para obtener las coordenadas del mouse
-    {
-        Vector2 goTo = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        move = true;
-
-        return goTo;
-    }
-    */
+    }  
 
     public void SetDestiny() //Método para obtener las coordenadas del mouse
     {
@@ -47,7 +38,7 @@ public class ControlPersonaje : MonoBehaviour
         Vector3 moveDirection = (destiny - (Vector2)transform.position).normalized; 
         transform.position += moveDirection * Speed * Time.deltaTime;
 
-        if (Vector2.Distance(transform.position, destiny) <= 0f)
+        if (Vector2.Distance(transform.position, destiny) <= 0.1f)
             move = false;
     }
 
@@ -60,10 +51,13 @@ public class ControlPersonaje : MonoBehaviour
         GameObject bullet = Instantiate(BulletPrefab);                          //-> Crear 
         bullet.transform.position = transform.position;            //Coloca la bala en la posición del player
         bullet.transform.up = normalizeShootDirection;             //Ajusta el ángulo de la bala a la ubicación del mouse
-        print(worldPositon);                                       //Imprime la ubicación del mouse al dar click
+        //print(worldPositon);                                       //Imprime la ubicación del mouse al dar click
     }
 
-
-
+    public void PlayerLife(float damage)
+    {
+        lifePlayer -= damage;
+        print("Tu vida actual es: " + lifePlayer);
+    }
 
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /*Contenido
@@ -7,9 +8,10 @@ Condiciones de comparación por colisión por Trigger (Destrucción por única colis
 */
 
 public class Bullet : MonoBehaviour
-{   
-    public float Speed;
-
+{
+    [SerializeField] private float Speed;
+    private List<string> tagslist = new List<string>()
+    {     "Enemy", "EnemyTwo", "BulletEnemyOne" };
     void Start()
     {       
         Destroy(gameObject, 5);
@@ -22,7 +24,17 @@ public class Bullet : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") || collision.CompareTag("EnemyTwo")) //Comparar contacto con los enemigos para destruir la bala
-            Destroy(gameObject);
-    }
+        foreach (string tag in tagslist)
+        {
+            if (collision.CompareTag(tag))
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        //if (collision.CompareTag("Enemy")     || collision.CompareTag("EnemyTwo") ||
+        //    collision.CompareTag("MuroNegro"))
+        //    Destroy(gameObject);
+    }       
+    
 }

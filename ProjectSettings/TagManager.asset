@@ -11,6 +11,7 @@ TagManager:
   - EnemyThree
   - BulletEnemyTwo
   - BulletEnemyThree
+  - MuroNegro
   layers:
   - Default
   - TransparentFX
