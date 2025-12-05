@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 6
-  lifePlayer: -1950
+  lifePlayer: 50
   PlayerWalk: {fileID: 2540231828414736392}
 --- !u!50 &3562712803913055893
 Rigidbody2D:
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnPrefabEnemy: {fileID: 7474887824286960025, guid: c63dfdc71538c9f4c9279fec039c8175, type: 3}
   Player: {fileID: 3572854717035177778}
-  radioSpawn: 5
+  radioSpawn: 6
 --- !u!114 &1860247749173932513
 MonoBehaviour:
   m_ObjectHideFlags: 0
