@@ -13,10 +13,10 @@ Vida del player
     {
         Speed = _speed;
         lifePlayer = _lifePlayer;
+       
     }
 }
-
-    public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {     
     [SerializeField] private float Speed;
     [SerializeField] private float lifePlayer = 50f;
@@ -25,6 +25,10 @@ Vida del player
 
     [SerializeField] private Animator PlayerWalk;
 
+    private void Start()
+    {
+        print(LifeEnemy.NumberEnemyDeathGet());
+    }
     void Update()
     {        
         if (move) //Si es TRUE hay movimiento 
