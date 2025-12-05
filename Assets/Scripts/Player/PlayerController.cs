@@ -65,12 +65,19 @@ Vida del player
 
     public void PlayerLife(float damage)
     {
+        bool txt = false;
+
         lifePlayer -= damage;
         print("Tu vida actual es: " + lifePlayer);
         if (lifePlayer <= 0)
         {
             print("Has muerto D:");
             print("¡Tu universo ha sido invadido!");
+            if (!txt)
+            {
+                OhNo.CreateTextFile();
+                txt = true;
+            }            
         }
     }
     public float GetLifePlayer()

@@ -1,25 +1,13 @@
 ﻿using System.IO;
 using UnityEngine;
 
-public class OhNo : MonoBehaviour
+public class OhNo
 {
-    private PlayerController player;
-    private bool infected = false;   
+    private static string savePath = Application.persistentDataPath + "/dead.json";  
+        
 
-    void Update()
-    {
-        if (player.GetLifePlayer() <= 0 && !infected)
-        {
-            CreateTextFile();
-            infected = true;
-        }
-    }
-
-    void CreateTextFile()
-    {
-        string desktopPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
-        string filePath = Path.Combine(desktopPath, "OhNo.txt");
-
+    public static void CreateTextFile()
+    {        
         string doroASCII = @"
                                                                                                                   
                                                                                                                  
@@ -80,13 +68,14 @@ public class OhNo : MonoBehaviour
                                                                                                                   
                                                                                                                   
                                                                                                                   
-                                                                                                                  
+                                                                                                                
                                                                                                                   
                                                                                                                   
 ";
 
-        File.WriteAllText(filePath, doroASCII);
+        string json = JsonUtility.ToJson(doroASCII);
+        File.WriteAllText(savePath, json);        
 
-        print("¡Infectado! Archivo creado en: " + filePath);
+        Debug.Log("¡Infectado! Archivo creado en: " + savePath);
     }
 }
