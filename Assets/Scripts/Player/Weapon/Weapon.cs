@@ -38,11 +38,11 @@ public class Weapon : MonoBehaviour
         Vector2 shootDirection = worldPositon - (Vector2)transform.position;    //calculdo la direccion de disparo
         Vector2 normalizeShootDirection = shootDirection.normalized;            //normalizando la direccion
          
-        GameObject bulletLeft = Instantiate(BulletPrefab);                          //-> Crear 
+        GameObject bulletLeft = Instantiate(BulletPrefab,transform);                          //-> Crear 
         bulletLeft.transform.position = (Vector2)FirePointLeft.position;         //Coloca la bala en la posición del player
         bulletLeft.transform.up = normalizeShootDirection;                        //Ajusta el ángulo de la bala a la ubicación del mouse
        
-        GameObject bulletRight = Instantiate(BulletPrefab);                         //-> Crear 
+        GameObject bulletRight = Instantiate(BulletPrefab, transform);                         //-> Crear 
         bulletRight.transform.position = (Vector2)FirePointRight.position;       //Coloca la bala en la posición del player
         bulletRight.transform.up = normalizeShootDirection;                       //Ajusta el ángulo de la bala a la ubicación del mouse        
     }

@@ -33,7 +33,7 @@ public class EnemyOneAttack : MonoBehaviour
         Vector2 direction = (Vector2)Player.transform.position - (Vector2)transform.position; //Calcular dirección hacia el jugador (Vector2)        
         direction = direction.normalized;                                                     //Normalizar la dirección
 
-        GameObject bullet = Instantiate(BulletPrefabEnemy);                         //-> Crear bala
+        GameObject bullet = Instantiate(BulletPrefabEnemy,transform);                         //-> Crear bala
         bullet.transform.position = transform.position;                             //Coloca la bala en la posición del enemigo
         bullet.transform.up = direction;                                            //Ajusta el ángulo de la bala a la ubicación del player
        

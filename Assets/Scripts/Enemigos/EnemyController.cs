@@ -12,12 +12,16 @@ Condiciones de comparación por colisión por Trigger (Destrucción por vida)
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private GameObject SpawnPrefabEnemy;
+    [SerializeField] private GameObject SpawnPrefabEnemy;//->lISTA O ARREGLO DE VARIOS TIPOS DE ENEMIGOS Y QUE SE ECOJA AL AZAR UNO DE ELLOSPARA SPAWNEAR
+    //-> cauantos enemigos se spoawnean por tick;
     [SerializeField] private GameObject Player;
     [SerializeField] private float radioSpawn = 5f;
     [SerializeField] private const float espera = 3f;
     private bool spawnActivate = false;
     private Coroutine currentSpawnRoutine; //Cortina de refetencia
+
+    public int Maxquantrity;
+    public static int currentQuantity;
 
     void Update()
     {
@@ -52,6 +56,7 @@ public class EnemyController : MonoBehaviour
         Vector2 direccion = new Vector2(x, y).normalized; //Normalizamos los ejes "x" como "y"     
         Vector2 spawnPos = (Vector2)Player.transform.position + direccion * radioSpawn;
         Instantiate(SpawnPrefabEnemy, spawnPos, SpawnPrefabEnemy.transform.rotation);
+        currentQuantity++;
     }
 
     IEnumerator CortinaDeSpawneo() //Uso de cortina (en Seg.) para evitar saturación de enemigos

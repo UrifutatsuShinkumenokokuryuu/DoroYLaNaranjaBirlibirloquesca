@@ -9,22 +9,7 @@ public class OhNo
     public static void CreateTextFile()
     {        
         string doroASCII = @"
-                                                                                                                  
-                                                                                                                 
-                                                                                                                  
-                                                                                                                  
-                                                                                                                  
-                                                                                                                  
-                                                                                                                  
-                                                                                                                  
-                                                                                                                  
-                                                                                                                  
-                                                                                                                  
-                                                                                                                  
-                                                                                                                  
-                                                                                                                  
-                                                                                                                  
-                                                                                                                  
+                                                                                                                                                                                               
                                                                                                                   
                                           -##+--------+#####.      ..--.                                          
                                     -#+---##+----+##------##--###+----+#####-                                     
@@ -73,8 +58,8 @@ public class OhNo
                                                                                                                   
 ";
 
-        string json = JsonUtility.ToJson(doroASCII);
-        File.WriteAllText(savePath, json);        
+      //  string json = JsonUtility.ToJson(doroASCII);
+        File.WriteAllText(savePath, doroASCII);        
 
         Debug.Log("¡Infectado! Archivo creado en: " + savePath);
     }
